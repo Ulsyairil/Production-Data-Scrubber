@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ProductionDataScrubber.Cli/ProductionDataScrubber.Cli.csproj" />
+    <Project Path="src/ProductionDataScrubber.Core/ProductionDataScrubber.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ProductionDataScrubber.Tests/ProductionDataScrubber.Tests.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,13 @@
+bin/
+obj/
+*.user
+.vs/
+.idea/
+*.nupkg
+*.snupkg
+TestResults/
+coverage/
+artifacts/
+*.db
+*.db-shm
+*.db-wal

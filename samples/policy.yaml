@@ -1,0 +1,45 @@
+# Production data scrub policy.
+#
+# Every column not mentioned here keeps its value. Change `default-strategy` to `hash`
+# or `fake` to scrub everything that is not listed explicitly.
+
+version: 1
+seed: 42
+salt: change-me-before-you-use-this
+default-strategy: keep
+
+tables:
+  customers:
+    columns:
+      id:
+        strategy: surrogate
+      email:
+        strategy: hash
+      full_name:
+        strategy: fake
+      phone:
+        strategy: "null"
+      date_of_birth:
+        strategy: shift
+        shift-days: -3650
+      notes:
+        strategy: drop
+
+  invoices:
+    row-limit: 10000
+    columns:
+      billing_address:
+        strategy: redact
+        shape: email
+      created_at:
+        strategy: shift
+        shift-days: -90
+      notes:
+        strategy: drop
+
+  audit_log:
+    columns:
+      payload:
+        strategy: drop
+      ip_address:
+        strategy: hash
